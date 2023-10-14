@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "faturometro-django"
+version = "0.1.0"
+description = ""
+authors = ["iorjunior <juniorcoda@gmail.com>"]
+readme = "README.md"
+packages = [{include = "faturometro_django"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.6"
+environs = "^9.5.0"
+psycopg2-binary = "^2.9.9"
+dj-database-url = "^2.1.0"
+django-cockroachdb = "^4.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
