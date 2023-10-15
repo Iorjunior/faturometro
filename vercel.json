@@ -21,7 +21,8 @@
       },
       {
         "src": "/(.*)",
+        "headers": { "cache-control": "s-maxage=1800" },
         "dest": "core/wsgi.py"
       }
     ]
-  }
+}
