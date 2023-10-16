@@ -6,5 +6,10 @@ from .models import Venda
 
 class Faturometro(View):
     def get(request, *args, **kwargs):
-        total = Venda.objects.aggregate(total_vendas=Sum('valor'))
-        return JsonResponse({'total_vendas': total['total_vendas']})
+        painel = request.request.GET.get('id', '1')
+        total = Venda.objects.filter(painel=int(painel)).aggregate(total_vendas=Sum('valor'))
+        
+        if total['total_vendas']:
+            return JsonResponse({'total_vendas': total['total_vendas']})
+        else:
+            return JsonResponse({'total_vendas': '0.00'})
